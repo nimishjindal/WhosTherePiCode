@@ -1,4 +1,4 @@
-from nanpy import (arduinoApi, SerialManager)
+from nanpy import (ArduinoApi, SerialManager)
 from time import sleep
 
 ledpin = 13
