@@ -14,7 +14,7 @@ except:
 a.pinMode(ledpin, a.OUTPUT)
 
 try:
-    while True:
+    while _ in range(3):
         a.digitalWrite(ledpin, a.HIGH)
         print("on")
 
