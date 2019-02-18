@@ -1,5 +1,5 @@
 # flask_ngrok_example.py
-from flask import Flask
+from flask import Flask,send_file
 from flask_ngrok import run_with_ngrok
 import picamera
 
@@ -14,7 +14,7 @@ def hello():
 	# when we are done with it.
 	print("About to take a picture.")
 	with picamera.PiCamera() as camera:
-		camera.resolution = (1280,720)
+		#camera.resolution = (1280,720)
 		filename = "/home/pi/Desktop/newimage.jpg"
 		camera.capture(filename)
 		
