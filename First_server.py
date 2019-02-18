@@ -1,11 +1,11 @@
 # flask_ngrok_example.py
 from flask import Flask,send_file
-from flask_ngrok import run_with_ngrok
+#from flask_ngrok import run_with_ngrok
 import picamera
 
 
 app = Flask(__name__)
-run_with_ngrok(app)  # Start ngrok when app is run
+#run_with_ngrok(app)  # Start ngrok when app is run
 
 @app.route("/")
 def hello():
