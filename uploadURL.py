@@ -24,11 +24,9 @@ try:
 		
 		with open("/home/pi/Desktop/StaticURL.txt","w") as file:
 			file.write(url)
-		
-		s3_client = boto3.client('s3', 
-                      aws_access_key_id = AWS_SERVER_PUBLIC_KEY, 
-                      aws_secret_access_key = AWS_SERVER_SECRET_KEY, 
-                      )
+
+		session = boto3.Session(aws_access_key_id = AWS_SERVER_PUBLIC_KEY, aws_secret_access_key = AWS_SERVER_SECRET_KEY)
+		s3 = session.resource('s3')
 	
 except Exception as e:
 	print(e)
