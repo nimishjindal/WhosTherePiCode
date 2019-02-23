@@ -30,7 +30,7 @@ try:
 		session = boto3.Session(aws_access_key_id = AWS_SERVER_PUBLIC_KEY, aws_secret_access_key = AWS_SERVER_SECRET_KEY)
 		s3 = session.resource('s3')
 	
-		s3.upload_file("/home/pi/Desktop/"+filename, bucket_name, filename)
+		s3.meta.client.upload_file("/home/pi/Desktop/"+filename, bucket_name, filename)
 		print("done")
 	
 except Exception as e:
