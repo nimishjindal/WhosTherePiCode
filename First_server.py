@@ -1,12 +1,11 @@
-# flask_ngrok_example.py
-#from flask_ngrok import run_with_ngrok
-
 from flask import Flask,send_file
 import picamera
 from GetStaticUrl import GetStaticUrl
+from GetStaticUrl import GetStaticUrl
+import time
+
 
 app = Flask(__name__)
-#run_with_ngrok(app)  # Start ngrok when app is run
 
 @app.route("/capture/")
 def capture_visitor():
