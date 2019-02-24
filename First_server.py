@@ -3,22 +3,33 @@ import picamera
 from GetStaticUrl import GetStaticUrl
 from GetStaticUrl import GetStaticUrl
 import time
-
+from config import awsCreds as creds
 
 app = Flask(__name__)
 
 @app.route("/capture/")
 def capture_visitor():
 		
-	print("About to take a picture.")
-	
-	with picamera.PiCamera() as camera:
-		#camera.resolution = (1280,720)
-		filename = "/home/pi/Desktop/newimage.jpg"
-		camera.capture(filename)
+	try:
+		filename = "target.JPG"
+		bucket_name = "alexaguestentry"
 		
-	print("Picture taken.")
-	return send_file(filename, mimetype='image/jpg')
+		print("About to take a picture.")
+		
+		with picamera.PiCamera() as camera:
+			#camera.resolution = (1280,720)
+			camera.capture(filename)
+			
+		print("Picture taken.")
+		
+		session = boto3.Session(aws_access_key_id = creds["AWS_SERVER_PUBLIC_KEY"], aws_secret_access_key = creds["AWS_SERVER_SECRET_KEY"])
+		s3 = session.resource('s3')
+
+		s3.meta.client.upload_file("/home/pi/Desktop/"+filename, bucket_name, filename)
+		
+		return True,filename
+	except Exception as e:
+		return False,str(e)
 
 @app.route("/")
 def home():
