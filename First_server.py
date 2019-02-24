@@ -27,9 +27,9 @@ def capture_visitor():
 
 		s3.meta.client.upload_file("/home/pi/Desktop/"+filename, bucket_name, filename)
 		
-		return True,filename
+		return filename
 	except Exception as e:
-		return False,str(e)
+		return str(e)
 
 @app.route("/")
 def home():
