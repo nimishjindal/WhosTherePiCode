@@ -1,0 +1,7 @@
+*.pyc
+*.pickle
+package-lock.json
+package.json
+/.vs
+*.pickle
+config.py
