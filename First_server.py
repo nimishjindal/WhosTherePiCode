@@ -3,6 +3,7 @@ import picamera
 from GetStaticUrl import GetStaticUrl
 from GetStaticUrl import GetStaticUrl
 import time
+import boto3
 from config import awsCreds as creds
 
 app = Flask(__name__)
