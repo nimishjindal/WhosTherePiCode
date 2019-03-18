@@ -18,7 +18,7 @@ def capture_visitor():
 		print("About to take a picture.")
 		
 		with picamera.PiCamera() as camera:
-			#camera.resolution = (1280,720)
+			#camera.resolution = (320,240)
 			camera.capture("/home/pi/Desktop/"+filename)
 			
 		print("Picture taken.")
