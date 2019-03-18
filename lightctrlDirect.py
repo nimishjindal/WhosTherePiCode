@@ -14,9 +14,3 @@ class gpio:
 		GPIO.output(self.pin,GPIO.HIGH)
 	def TurnOff(self):
 		GPIO.output(self.pin,GPIO.LOW)
-		
-
-abcd = gpio(18)
-abcd.TurnOn()
-time.sleep(5)
-

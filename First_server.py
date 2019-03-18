@@ -5,6 +5,7 @@ from GetStaticUrl import GetStaticUrl
 import time
 import boto3
 from config import awsCreds as creds
+from uploadURL import uploadurl
 
 app = Flask(__name__)
 
@@ -41,5 +42,8 @@ def Unlock_door():
 	return "unlock api"
 
 if __name__ == '__main__':
-    
-	app.run()
+	
+	if uploadurl():	
+		app.run()
+	else:
+		print("error")
