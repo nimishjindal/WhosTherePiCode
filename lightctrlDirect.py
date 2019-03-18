@@ -12,7 +12,7 @@ class gpio:
 		GPIO.cleanup()
 	def TurnOn(self):
 		GPIO.output(self.pin,GPIO.HIGH)
-	def TurOff(self):
+	def TurnOff(self):
 		GPIO.output(self.pin,GPIO.LOW)
 		
 
