@@ -1,12 +1,22 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(18,GPIO.OUT)
+class gpio:
+	def __init__(self,pinNo):
+		self.pin = pinNo
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setup(pinNo,GPIO.OUT)
+		GPIO.output(pinNo,GPIO.LOW)
+	def __del__(self):
+		self.TurnOff()
+		GPIO.cleanup()
+	def TurnOn(self):
+		GPIO.output(self.pin,GPIO.HIGH)
+	def TurOff(self):
+		GPIO.output(self.pin,GPIO.LOW)
+		
 
-GPIO.output(18,GPIO.HIGH)
-
+abcd = gpio(18)
+abcd.TurnOn()
 time.sleep(5)
 
-GPIO.output(18,GPIO.LOW)
-GPIO.cleanup()
