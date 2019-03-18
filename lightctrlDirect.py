@@ -14,3 +14,9 @@ class gpio:
 		GPIO.output(self.pin,GPIO.HIGH)
 	def TurnOff(self):
 		GPIO.output(self.pin,GPIO.LOW)
+	def blink(self,times = 3):
+		for _ in range(times):
+			self.TurnOn()
+			time.sleep(1)
+			self.TurnOff()
+			time.sleep(1)
