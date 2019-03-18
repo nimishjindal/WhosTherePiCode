@@ -1,0 +1,2 @@
+
+STATUS_LED_PIN = 18

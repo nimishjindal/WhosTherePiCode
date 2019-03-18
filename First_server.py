@@ -6,7 +6,7 @@ import time
 import boto3
 from config import awsCreds as creds
 from uploadURL import uploadurl
-from config import STATUS_LED_PIN
+from const import STATUS_LED_PIN
 from lightctrlDirect import gpio
 
 app = Flask(__name__)
