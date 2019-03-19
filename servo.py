@@ -1,18 +1,21 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-pinNo = 2
-
-def SetAngle(angle):
-	duty = float(angle) / 10.0 + 2.5
-    pwm.ChangeDutyCycle(duty)
-	sleep(1)
+class servo:
+	def __init__(self):
+		pinNo = 2	
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setup(pinNo,GPIO.OUT)		
+		self.pwm=GPIO.PWM(pinNo, 50)
+	def __del__(self):
+		self.pwm.stop()
+		GPIO.cleanup()
 	
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(pinNo,GPIO.OUT)		
-pwm=GPIO.PWM(pinNo, 50)
-
-pwm.start(5)
+	def SetAngle(self,angle):
+		self.pwm.start(5)
+		duty = float(angle) / 10.0 + 2.5
+		self.pwm.ChangeDutyCycle(duty)
+		sleep(1)
 
 try:
     while True:
@@ -24,10 +27,10 @@ try:
         pwm.ChangeDutyCycle(12.5) # turn towards 180 degree
         sleep(1) # sleep 1 second 
 		"""
-		SetAngle(90)
-		setAngle(0)
-		setAngle(180)
+		s = servo()
+		s.SetAngle(90)
+		s.setAngle(0)
+		s.setAngle(180)
 		
 except KeyboardInterrupt:
-    pwm.stop()
-    GPIO.cleanup()
+		del s
