@@ -20,3 +20,6 @@ class gpio:
 			time.sleep(1)
 			self.TurnOff()
 			time.sleep(1)
+led = gpio(18)
+led.TurnOn()
+time.sleep(2)
