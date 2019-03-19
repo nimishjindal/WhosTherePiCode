@@ -21,6 +21,18 @@ GPIO.setup(pinNo,GPIO.OUT)
 pwm=GPIO.PWM(pinNo, 50)
 pwm.start(7.5)
 
+try:
+    while True:
+        pwm.ChangeDutyCycle(7.5)  # turn towards 90 degree
+        time.sleep(1) # sleep 1 second
+        pwm.ChangeDutyCycle(2.5)  # turn towards 0 degree
+        time.sleep(1) # sleep 1 second
+        pwm.ChangeDutyCycle(12.5) # turn towards 180 degree
+        time.sleep(1) # sleep 1 second 
+except KeyboardInterrupt:
+    pwm.stop()
+    GPIO.cleanup()
+
 	
 def rotate(angle):
 	dc = 0
@@ -34,13 +46,4 @@ def rotate(angle):
 
 	pwm.ChangeDutyCycle(dc)
 	sleep(5)
-	
-
-rotate(90)
-rotate(0)
-rotate(90)
-
-pwm.stop()
-GPIO.cleanup()
-
 	
