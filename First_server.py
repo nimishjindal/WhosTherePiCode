@@ -41,7 +41,11 @@ def home():
 	
 @app.route("/unlock/")
 def Unlock_door():
-	return "unlock api"
+
+	statusLED = gpio(STATUS_LED_PIN)
+	statusLED.blink()
+
+	return "OK"
 
 if __name__ == '__main__':
 	
