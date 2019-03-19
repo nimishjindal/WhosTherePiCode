@@ -36,9 +36,9 @@ def rotate(angle):
 	sleep(1)
 	
 
-rotate(0)
 rotate(90)
 rotate(0)
+rotate(90)
 
 pwm.stop()
 GPIO.cleanup()
