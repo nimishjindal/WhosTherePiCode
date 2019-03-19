@@ -6,7 +6,7 @@ class servo:
 		pinNo = 2	
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setup(pinNo,GPIO.OUT)		
-		self.pwm=GPIO.PWM(pinNo, 50)
+		self.pwm=GPIO.PWM(pinNo, 100)
 	def __del__(self):
 		self.pwm.stop()
 		GPIO.cleanup()
