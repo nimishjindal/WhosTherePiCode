@@ -19,14 +19,7 @@ class servo:
 
 try:
     while True:
-		"""
-        pwm.ChangeDutyCycle(7.5)  # turn towards 90 degree
-        sleep(1) # sleep 1 second
-        pwm.ChangeDutyCycle(2.5)  # turn towards 0 degree
-        sleep(1) # sleep 1 second
-        pwm.ChangeDutyCycle(12.5) # turn towards 180 degree
-        sleep(1) # sleep 1 second 
-		"""
+
 		s = servo()
 		s.SetAngle(90)
 		s.setAngle(0)
@@ -34,3 +27,12 @@ try:
 		
 except KeyboardInterrupt:
 		del s
+		
+"""
+pwm.ChangeDutyCycle(7.5)  # turn towards 90 degree
+sleep(1) # sleep 1 second
+pwm.ChangeDutyCycle(2.5)  # turn towards 0 degree
+sleep(1) # sleep 1 second
+pwm.ChangeDutyCycle(12.5) # turn towards 180 degree
+sleep(1) # sleep 1 second 
+"""
