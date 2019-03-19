@@ -33,7 +33,7 @@ def rotate(angle):
 		dc = 0
 
 	pwm.ChangeDutyCycle(dc)
-	sleep(1)
+	sleep(5)
 	
 
 rotate(90)
