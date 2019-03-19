@@ -24,11 +24,11 @@ pwm.start(7.5)
 try:
     while True:
         pwm.ChangeDutyCycle(7.5)  # turn towards 90 degree
-        time.sleep(1) # sleep 1 second
+        sleep(1) # sleep 1 second
         pwm.ChangeDutyCycle(2.5)  # turn towards 0 degree
-        time.sleep(1) # sleep 1 second
+        sleep(1) # sleep 1 second
         pwm.ChangeDutyCycle(12.5) # turn towards 180 degree
-        time.sleep(1) # sleep 1 second 
+        sleep(1) # sleep 1 second 
 except KeyboardInterrupt:
     pwm.stop()
     GPIO.cleanup()
