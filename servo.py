@@ -16,15 +16,21 @@ class servo:
 		duty = float(angle) / 10.0 + 2.5
 		self.pwm.ChangeDutyCycle(duty)
 		sleep(1)
-
-try:
-	s = servo()
-	s.setAngle(90)
-	s.setAngle(0)
-	s.setAngle(180)
-		
-except Exception as e:
-	print(e)
+if __name__ == "__main__":	
+	try:
+		s = servo()
+		while:
+			an = int(input("enter angle"))
+			
+			s.setAngle(an)
+			
+			#s.setAngle(90)
+			#s.setAngle(0)
+			#s.setAngle(180)
+				
+		except Exception as e:
+			del s
+			print(e)
 		
 """
 pwm.ChangeDutyCycle(7.5)  # turn towards 90 degree
