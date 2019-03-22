@@ -40,6 +40,23 @@ def capture_visitor():
 def home():
 	return "home"
 	
+@app.route("/lock/")
+def lock_door():
+
+#	statusLED = gpio(STATUS_LED_PIN)
+#	statusLED.blink()
+	
+	msg = "OK"
+	try:
+		s = Servo(2)
+		s.setAngle(0)
+		del s
+	except Exception as e:
+		msg = str(e)
+
+	return msg
+
+	
 @app.route("/unlock/")
 def Unlock_door():
 
@@ -53,7 +70,6 @@ def Unlock_door():
 		del s
 	except Exception as e:
 		msg = str(e)
-
 
 	return msg
 
