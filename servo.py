@@ -19,7 +19,7 @@ class servo:
 if __name__ == "__main__":	
 	try:
 		s = servo()
-		while:
+		while True:
 			an = int(input("enter angle"))
 			
 			s.setAngle(an)
