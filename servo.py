@@ -2,10 +2,10 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 class Servo:
-	def __init__(self,pno):
-		self.pinNo = pno	
+	def __init__(self,pNo):
+		self.pinNo = pNo	
 		GPIO.setmode(GPIO.BCM)
-		GPIO.setup(pinNo,GPIO.OUT)		
+		GPIO.setup(pNo,GPIO.OUT)		
 		self.pwm=GPIO.PWM(pNo, 100)
 	def __del__(self):
 		self.pwm.stop()
