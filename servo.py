@@ -18,14 +18,13 @@ class servo:
 		sleep(1)
 
 try:
-	while True:
-		s = servo()
-		s.setAngle(90)
-		s.setAngle(0)
-		s.setAngle(180)
+	s = servo()
+	s.setAngle(90)
+	s.setAngle(0)
+	s.setAngle(180)
 		
-except KeyboardInterrupt:
-	del s
+except Exception as e:
+	print(e)
 		
 """
 pwm.ChangeDutyCycle(7.5)  # turn towards 90 degree
