@@ -11,7 +11,7 @@ class servo:
 		self.pwm.stop()
 		GPIO.cleanup()
 	
-	def SetAngle(self,angle):
+	def setAngle(self,angle):
 		self.pwm.start(5)
 		duty = float(angle) / 10.0 + 2.5
 		self.pwm.ChangeDutyCycle(duty)
@@ -20,7 +20,7 @@ class servo:
 try:
 	while True:
 		s = servo()
-		s.SetAngle(90)
+		s.setAngle(90)
 		s.setAngle(0)
 		s.setAngle(180)
 		
