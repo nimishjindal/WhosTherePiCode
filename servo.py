@@ -1,12 +1,12 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-class servo:
-	def __init__(self):
-		pinNo = 2	
+class Servo:
+	def __init__(self,pno):
+		self.pinNo = pno	
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setup(pinNo,GPIO.OUT)		
-		self.pwm=GPIO.PWM(pinNo, 100)
+		self.pwm=GPIO.PWM(pNo, 100)
 	def __del__(self):
 		self.pwm.stop()
 		GPIO.cleanup()
@@ -16,9 +16,10 @@ class servo:
 		duty = float(angle) / 10.0 + 2.5
 		self.pwm.ChangeDutyCycle(duty)
 		sleep(1)
+		
 if __name__ == "__main__":	
 	try:
-		s = servo()
+		s = Servo(2)
 		while True:
 			an = int(input("enter angle"))
 			

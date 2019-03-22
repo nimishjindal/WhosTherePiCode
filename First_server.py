@@ -8,6 +8,7 @@ from config import awsCreds as creds
 from uploadURL import uploadurl
 from const import STATUS_LED_PIN
 from lightctrlDirect import gpio
+from servo import Servo
 
 app = Flask(__name__)
 
@@ -42,18 +43,27 @@ def home():
 @app.route("/unlock/")
 def Unlock_door():
 
-	statusLED = gpio(STATUS_LED_PIN)
-	statusLED.blink()
+#	statusLED = gpio(STATUS_LED_PIN)
+#	statusLED.blink()
+	
+	msg = "OK"
+	try:
+		s = servo(2)
+		s.setAngle(90)
+	except Exception as e:
+		msg = str(e)
+	finally:
+		del s
 
-	return "OK"
+	return msg
 
 if __name__ == '__main__':
 	
-	statusLED = gpio(STATUS_LED_PIN)
+	#statusLED = gpio(STATUS_LED_PIN)
 	if uploadurl():	
 		app.run()
-		statusLED.TurnOn()
+		#statusLED.TurnOn()
 	else:
 		print("error")
-		statusLED.blink()
+		#statusLED.blink()
 		
