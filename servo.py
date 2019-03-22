@@ -28,9 +28,9 @@ if __name__ == "__main__":
 			#s.setAngle(0)
 			#s.setAngle(180)
 				
-		except Exception as e:
-			del s
-			print(e)
+	except Exception as e:
+		del s
+		print(e)
 		
 """
 pwm.ChangeDutyCycle(7.5)  # turn towards 90 degree
