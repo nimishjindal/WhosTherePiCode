@@ -48,7 +48,7 @@ def Unlock_door():
 	
 	msg = "OK"
 	try:
-		s = servo(2)
+		s = Servo(2)
 		s.setAngle(90)
 		del s
 	except Exception as e:
