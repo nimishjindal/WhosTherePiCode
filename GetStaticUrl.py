@@ -25,8 +25,8 @@ class GetStaticUrl:
 
 	def Static_url(self):
 		try:
-			resp = requests.get(str(self.url))
-			print(resp)
+			resp = requests.get(url=self.url)
+			print(resp.json())
 			return str("")
 		except Exception as e:
 			print(e)
