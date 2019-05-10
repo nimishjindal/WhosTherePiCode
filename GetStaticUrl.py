@@ -32,6 +32,9 @@ class GetStaticUrl:
 			soup = BeautifulSoup(resp.content, "lxml")
 			tags = soup.find_all(type="text/javascript")
 
+			print("tags")
+			print(tags)
+			
 			want = tags[5]
 							
 			urls = re.findall("https://[0-9a-zA-Z]{8}\.ngrok\.io",str(want))
@@ -39,6 +42,7 @@ class GetStaticUrl:
 			
 			return str(urls[0])
 		except Exception as e:
+			print(e)
 			return str(e)
 			
 if __name__ == '__main__':
