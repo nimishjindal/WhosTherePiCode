@@ -9,7 +9,7 @@ class GetStaticUrl:
 	def __init__(self,hostname,port):
 		self.hostname = hostname
 		self.port = port
-		self.url = "http://" +hostname+ ":" +str(port)
+		self.url = "http://" +hostname+ ":" +str(port)+"/api/tunnels"
 		
 	def check_running(self):
 		
@@ -22,8 +22,18 @@ class GetStaticUrl:
 		else:
 			print ("Port is open")
 			return False
-			
+
 	def Static_url(self):
+		try:
+			resp = requests.get(str(self.url))
+			print(resp)
+			return str("")
+		except Exception as e:
+			print(e)
+			return str(e)
+			
+			
+	def Static_url_old(self):
 		try:
 			resp = requests.get(str(self.url))
 			http_encoding = resp.encoding if 'charset' in resp.headers.get('content-type', '').lower() else None
