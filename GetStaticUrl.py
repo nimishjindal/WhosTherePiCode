@@ -25,35 +25,13 @@ class GetStaticUrl:
 
 	def Static_url(self):
 		try:
-			resp = requests.get(url=self.url)
-			print(resp.json())
-			return str("")
+			resp = requests.get(url=self.url).json()
+			statUrl = resp["tunnels"][0]["public_url"]
+			print(statUrl)
+			return str(statUrl)
 		except Exception as e:
 			print(e)
-			return str(e)
-			
-			
-	def Static_url_old(self):
-		try:
-			resp = requests.get(str(self.url))
-			http_encoding = resp.encoding if 'charset' in resp.headers.get('content-type', '').lower() else None
-			html_encoding = EncodingDetector.find_declared_encoding(resp.content, is_html=True)
-			encoding = html_encoding or http_encoding
-			soup = BeautifulSoup(resp.content, "lxml")
-			tags = soup.find_all(type="text/javascript")
-
-			print("tags")
-			print(tags)
-			
-			want = tags[5]
-							
-			urls = re.findall("https://[0-9a-zA-Z]{8}\.ngrok\.io",str(want))
-
-			
-			return str(urls[0])
-		except Exception as e:
-			print(e)
-			return str(e)
+			return str("could not connect to the server")
 			
 if __name__ == '__main__':
 	try:
