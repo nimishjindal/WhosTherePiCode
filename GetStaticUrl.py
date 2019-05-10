@@ -40,3 +40,11 @@ class GetStaticUrl:
 			return str(urls[0])
 		except Exception as e:
 			return str(e)
+			
+if __name__ == '__main__':
+	try:
+		gsu = GetStaticUrl("127.0.0.1",4040)
+		url = gsu.Static_url()
+		print(url)
+	except Exception as e:
+		print(e)
